@@ -864,3 +864,75 @@
 
         const network =
             document.getElementById("network").value;
+
+        const selected =
+            document.getElementById("package").value;
+
+        const customer =
+            document.getElementById("customerNumber").value.trim();
+
+
+        if (!network) {
+
+            alert("Tafadhali chagua mtandao.");
+
+            return;
+        }
+
+
+        if (!selected) {
+
+            alert("Tafadhali chagua kifurushi.");
+
+            return;
+        }
+
+
+        if (!customer) {
+
+            alert("Tafadhali weka namba ya simu.");
+
+            return;
+        }
+
+
+        const data = selected.split("|");
+
+        const bundle = data[0];
+
+        const price =
+            Number(data[1]).toLocaleString();
+
+
+        const message =
+`HABARI DULLA MABANDO 👋
+
+Nahitaji kufanya request ya bando.
+
+📡 Mtandao: ${network}
+📦 Kifurushi: ${bundle}
+💰 Bei: TSh ${price}
+📱 Namba ya kuweka bando: ${customer}
+
+💳 Nimefanya / nitafanya malipo kupitia:
+0614732395
+
+Naomba nihudumiwe. Asante 🤝`;
+
+
+        const whatsappURL =
+            "https://wa.me/255614732395?text=" +
+            encodeURIComponent(message);
+
+
+        window.open(
+            whatsappURL,
+            "_blank"
+        );
+
+    }
+
+</script>
+
+</body>
+    </html>
