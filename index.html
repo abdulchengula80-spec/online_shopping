@@ -60,7 +60,7 @@
             <div class="hidden md:flex items-center space-x-4">
                 <a href="#packages" class="text-sm font-semibold hover:text-amber-400 transition-colors">Vifurushi</a>
                 <a href="#payment-info" class="text-sm font-semibold hover:text-amber-400 transition-colors">Malipo</a>
-                <a href="#confirm-payment" class="text-sm font-semibold hover:text-amber-400 transition-colors">Thibitisha Malipo</a>
+                <a href="#order-section" class="text-sm font-semibold hover:text-amber-400 transition-colors">Weka Odha</a>
                 <a href="https://wa.me/255614732395" target="_blank" class="bg-green-600 hover:bg-green-500 text-white text-sm px-4 py-2 rounded-full font-bold flex items-center space-x-2 transition-all shadow-md">
                     <i class="fab fa-whatsapp text-lg"></i>
                     <span>0614732395</span>
@@ -78,7 +78,7 @@
                 NUNUA MABANDO KWA <span class="text-amber-400 underline decoration-amber-500">BEI CHEE</span>
             </h2>
             <p class="text-slate-300 max-w-2xl mx-auto text-sm md:text-base mb-6">
-                Chagua kifurushi chako kutoka **YAS** au **HALOTEL**, fanya malipo, kisha tupate WhatsApp au kupitia Call/SMS tukuwekee bando yako papo hapo!
+                Chagua kifurushi chako kutoka **YAS** au **HALOTEL**, fanya malipo, kisha ututumie maelezo WhatsApp au Call/SMS tukuwekee bando yako papo hapo!
             </p>
 
             <!-- Action Contact Strip -->
@@ -183,62 +183,12 @@
             </div>
         </div>
 
-        <section id="order-section" class="bg-slate-800/80 border border-slate-700 rounded-3xl p-6 md:p-8 mb-12 shadow-xl backdrop-blur-md">
-            <div class="max-w-2xl mx-auto">
-                <div class="text-center mb-6">
-                    <span class="text-amber-400 font-bold text-xs uppercase tracking-widest">Hatua ya 1</span>
-                    <h3 class="text-2xl font-bold text-white">Weka Odha Yako</h3>
-                    <p class="text-slate-400 text-xs md:text-sm">Chagua kifurushi na uweke namba inayowekewa bando</p>
-                </div>
-
-                <form id="orderForm" onsubmit="handleOrderSubmit(event)" class="space-y-4">
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <div>
-                            <label class="block text-xs font-semibold text-slate-300 mb-1">Mtandao Unaotaka</label>
-                            <select id="selectedNetwork" onchange="updateBundleOptions()" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-amber-500 transition-colors">
-                                <option value="YAS">YAS (Super Bando)</option>
-                                <option value="HALOTEL">HALOTEL (Super Bando)</option>
-                            </select>
-                        </div>
-                        <div>
-                            <label class="block text-xs font-semibold text-slate-300 mb-1">Kifurushi (GB / Bei)</label>
-                            <select id="selectedBundle" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-amber-500 transition-colors">
-                            </select>
-                        </div>
-                    </div>
-
-                    <div>
-                        <label class="block text-xs font-semibold text-slate-300 mb-1">Namba ya Simu Inayowekewa Bando</label>
-                        <input type="tel" id="recipientPhone" required placeholder="Mfano: 0614732395 au 07XXXXXXXX" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-amber-500 transition-colors">
-                    </div>
-
-                    <div class="p-4 rounded-2xl bg-amber-500/10 border border-amber-500/20 text-xs text-amber-200 flex items-start space-x-3">
-                        <i class="fas fa-info-circle text-amber-400 text-base mt-0.5"></i>
-                        <div>
-                            <p class="font-bold">Maelekezo:</p>
-                            <p>Ukibonyeza button ya chini, itakuelekeza moja kwa moja **WhatsApp** ukiwa na ujumbe uliotengenezwa tayari kurequest bando.</p>
-                        </div>
-                    </div>
-
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                        <button type="submit" class="w-full bg-gradient-to-r from-emerald-600 to-green-500 hover:from-emerald-500 hover:to-green-400 text-white font-extrabold py-3.5 px-4 rounded-2xl shadow-xl transition-transform active:scale-[0.99] flex items-center justify-center space-x-2 pulse-btn">
-                            <i class="fab fa-whatsapp text-xl"></i>
-                            <span>REQUEST WHATSAPP</span>
-                        </button>
-                        <button type="button" onclick="sendViaSMS()" class="w-full bg-indigo-600 hover:bg-indigo-500 text-white font-extrabold py-3.5 px-4 rounded-2xl shadow-xl transition-transform active:scale-[0.99] flex items-center justify-center space-x-2">
-                            <i class="fas fa-comment-alt text-lg"></i>
-                            <span>TUMA SMS KAWAIDA</span>
-                        </button>
-                    </div>
-                </form>
-            </div>
-        </section>
-
+        <!-- HATUA YA 1: NAMBA ZA MALIPO -->
         <section id="payment-info" class="mb-12">
             <div class="text-center mb-6">
-                <span class="text-amber-400 font-bold text-xs uppercase tracking-widest">Hatua ya 2</span>
-                <h3 class="text-2xl font-bold text-white">Namba za Malipo</h3>
-                <p class="text-slate-400 text-xs md:text-sm">Lipa kupitia namba zetu rasmi hapa chini</p>
+                <span class="text-amber-400 font-bold text-xs uppercase tracking-widest bg-amber-500/10 px-3 py-1 rounded-full border border-amber-500/20">Hatua ya 1</span>
+                <h3 class="text-2xl font-bold text-white mt-2">Namba za Malipo</h3>
+                <p class="text-slate-400 text-xs md:text-sm">Lipa kwanza kupitia namba zetu rasmi hapa chini kabla ya kujaza odha yako</p>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -297,46 +247,70 @@
             </div>
         </section>
 
-        <section id="confirm-payment" class="bg-slate-800/90 border-2 border-green-500/40 rounded-3xl p-6 md:p-8 shadow-2xl relative overflow-hidden">
+        <!-- HATUA YA 2: WEKA ODHA & THIBITISHA MALIPO -->
+        <section id="order-section" class="bg-slate-800/80 border border-slate-700 rounded-3xl p-6 md:p-8 mb-12 shadow-xl backdrop-blur-md">
             <div class="max-w-2xl mx-auto">
                 <div class="text-center mb-6">
-                    <span class="px-3 py-1 bg-green-500/20 text-green-400 border border-green-500/30 rounded-full font-bold text-xs uppercase tracking-widest">Hatua ya 3</span>
-                    <h3 class="text-2xl font-extrabold text-white mt-2">Thibitisha Malipo Yako</h3>
-                    <p class="text-slate-300 text-xs md:text-sm">Ukishafanya malipo, jaza fomu hii kisha tuma uthibitisho WhatsApp ili kuwekewa bando papo hapo!</p>
+                    <span class="text-green-400 font-bold text-xs uppercase tracking-widest bg-green-500/10 px-3 py-1 rounded-full border border-green-500/20">Hatua ya 2</span>
+                    <h3 class="text-2xl font-bold text-white mt-2">Weka Odha & Thibitisha Malipo</h3>
+                    <p class="text-slate-400 text-xs md:text-sm">Jaza fomu hii kisha tuma taarifa zako moja kwa moja WhatsApp au SMS</p>
                 </div>
 
-                <form id="confirmPaymentForm" onsubmit="handlePaymentConfirmation(event)" class="space-y-4">
+                <form id="orderForm" onsubmit="handleOrderSubmit(event)" class="space-y-4">
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                         <div>
-                            <label class="block text-xs font-semibold text-slate-300 mb-1">Jina Lako / Jina la Aliyelipa</label>
-                            <input type="text" id="payerName" required placeholder="Mfano: John Joseph" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-green-500 transition-colors">
+                            <label class="block text-xs font-semibold text-slate-300 mb-1">Mtandao Unaotaka</label>
+                            <select id="selectedNetwork" onchange="updateBundleOptions()" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-amber-500 transition-colors">
+                                <option value="YAS">YAS (Super Bando)</option>
+                                <option value="HALOTEL">HALOTEL (Super Bando)</option>
+                            </select>
                         </div>
                         <div>
-                            <label class="block text-xs font-semibold text-slate-300 mb-1">Namba Iliyotuma Pesa</label>
-                            <input type="tel" id="payerPhone" required placeholder="Mfano: 0712345678" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-green-500 transition-colors">
-                        </div>
-                    </div>
-
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <div>
-                            <label class="block text-xs font-semibold text-slate-300 mb-1">Kiasi Kilicholipwa (TSH)</label>
-                            <input type="number" id="paidAmount" required placeholder="Mfano: 4000" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-green-500 transition-colors">
-                        </div>
-                        <div>
-                            <label class="block text-xs font-semibold text-slate-300 mb-1">Kumbukumbu / Ref ID (Optional)</label>
-                            <input type="text" id="transactionId" placeholder="Mfano: 9283749281" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-green-500 transition-colors">
+                            <label class="block text-xs font-semibold text-slate-300 mb-1">Kifurushi (GB / Bei)</label>
+                            <select id="selectedBundle" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-amber-500 transition-colors">
+                            </select>
                         </div>
                     </div>
 
                     <div>
-                        <label class="block text-xs font-semibold text-slate-300 mb-1">Namba Inayowekewa Bando</label>
-                        <input type="tel" id="confirmTargetPhone" required placeholder="Namba inayopokea bando" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-green-500 transition-colors">
+                        <label class="block text-xs font-semibold text-slate-300 mb-1">Namba ya Simu Inayowekewa Bando</label>
+                        <input type="tel" id="recipientPhone" required placeholder="Mfano: 0614732395 au 07XXXXXXXX" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-amber-500 transition-colors">
                     </div>
 
-                    <button type="submit" class="w-full bg-gradient-to-r from-green-600 to-emerald-500 hover:from-green-500 hover:to-emerald-400 text-white font-extrabold py-4 px-6 rounded-2xl shadow-xl transition-transform active:scale-[0.99] flex items-center justify-center space-x-3">
-                        <i class="fas fa-check-circle text-2xl"></i>
-                        <span>THIBITISHA MALIPO KWA WHATSAPP</span>
-                    </button>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2 border-t border-slate-700/60">
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-300 mb-1">Jina Lako / Jina la Aliyelipa</label>
+                            <input type="text" id="payerName" required placeholder="Mfano: John Joseph" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-amber-500 transition-colors">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-300 mb-1">Namba Iliyotuma Pesa</label>
+                            <input type="tel" id="payerPhone" required placeholder="Mfano: 0712345678" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-amber-500 transition-colors">
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-300 mb-1">Kumbukumbu / Ref ID (Sio Lazima)</label>
+                        <input type="text" id="transactionId" placeholder="Mfano: 9283749281" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-amber-500 transition-colors">
+                    </div>
+
+                    <div class="p-4 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 text-xs text-emerald-200 flex items-start space-x-3">
+                        <i class="fas fa-info-circle text-emerald-400 text-base mt-0.5"></i>
+                        <div>
+                            <p class="font-bold">Maelekezo:</p>
+                            <p>Ukibonyeza batani ya chini, itakuelekeza moja kwa moja **WhatsApp** ukiwa na ujumbe kamili wa odha na uthibitisho wa malipo yako.</p>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                        <button type="submit" class="w-full bg-gradient-to-r from-emerald-600 to-green-500 hover:from-emerald-500 hover:to-green-400 text-white font-extrabold py-3.5 px-4 rounded-2xl shadow-xl transition-transform active:scale-[0.99] flex items-center justify-center space-x-2 pulse-btn">
+                            <i class="fab fa-whatsapp text-xl"></i>
+                            <span>TUMA ODHA KWA WHATSAPP</span>
+                        </button>
+                        <button type="button" onclick="sendViaSMS()" class="w-full bg-indigo-600 hover:bg-indigo-500 text-white font-extrabold py-3.5 px-4 rounded-2xl shadow-xl transition-transform active:scale-[0.99] flex items-center justify-center space-x-2">
+                            <i class="fas fa-comment-alt text-lg"></i>
+                            <span>TUMA SMS KAWAIDA</span>
+                        </button>
+                    </div>
                 </form>
             </div>
         </section>
@@ -367,9 +341,9 @@
             <i class="fas fa-phone text-base mb-1"></i>
             <span>Piga Simu</span>
         </a>
-        <a href="#confirm-payment" class="flex flex-col items-center text-slate-400 hover:text-amber-400 text-[10px] font-medium">
-            <i class="fas fa-check-double text-base mb-1"></i>
-            <span>Thibitisha</span>
+        <a href="#order-section" class="flex flex-col items-center text-slate-400 hover:text-amber-400 text-[10px] font-medium">
+            <i class="fas fa-paper-plane text-base mb-1"></i>
+            <span>Weka Odha</span>
         </a>
     </div>
 
@@ -513,9 +487,12 @@
             e.preventDefault();
             const network = document.getElementById('selectedNetwork').value;
             const bundleVal = document.getElementById('selectedBundle').value;
-            const phone = document.getElementById('recipientPhone').value;
+            const targetPhone = document.getElementById('recipientPhone').value;
+            const name = document.getElementById('payerName').value;
+            const payerPhone = document.getElementById('payerPhone').value;
+            const txnId = document.getElementById('transactionId').value || 'Haikuwekwa';
 
-            const text = `Habari Dulla Mabando,%0ANatambua unatoa huduma ya bando.%0A%0A*OMBI LA BANDO:*%0A• Mtandao: *${network}*%0A• Kifurushi: *${bundleVal.split('-')[0]}*%0A• Bei: *TSH ${bundleVal.split('-')[1]}*%0A• Namba Inayowekewa: *${phone}*%0A%0ANaomba mwongozo wa malipo ili niweze kuwekewa bando langu.`;
+            const text = `Habari Dulla Mabando,%0ANimekamilisha Malipo na kuweka odha!%0A%0A*TAARIFA ZA ODHA:*%0A• Mtandao: *${network}*%0A• Kifurushi: *${bundleVal.split('-')[0]}*%0A• Bei: *TSH ${bundleVal.split('-')[1]}*%0A• Namba Inayowekewa Bando: *${targetPhone}*%0A%0A*UTHIBITISHO WA MALIPO:*%0A• Jina la Aliyelipa: *${name}*%0A• Namba Iliyotuma: *${payerPhone}*%0A• Ref / Txn ID: *${txnId}*%0A%0ANaomba uniewekee bando langu tafadhali.`;
 
             window.open(`https://wa.me/255614732395?text=${text}`, '_blank');
         }
@@ -523,28 +500,16 @@
         function sendViaSMS() {
             const network = document.getElementById('selectedNetwork').value;
             const bundleVal = document.getElementById('selectedBundle').value;
-            const phone = document.getElementById('recipientPhone').value;
+            const targetPhone = document.getElementById('recipientPhone').value;
+            const name = document.getElementById('payerName').value;
 
-            if(!phone) {
-                alert('Tafadhali weka namba inayowekewa bando kwanza.');
+            if(!targetPhone || !name) {
+                alert('Tafadhali jaza namba inayowekewa bando na jina la aliyelipa.');
                 return;
             }
 
-            const text = `Habari Dulla Mabando, Naomba Bando la ${network} ${bundleVal.split('-')[0]} kwa namba ${phone}.`;
+            const text = `Habari Dulla Mabando, Nimetuma malipo. Naomba Bando la ${network} ${bundleVal.split('-')[0]} kwa namba ${targetPhone}. Jina: ${name}`;
             window.location.href = `sms:0614732395?body=${encodeURIComponent(text)}`;
-        }
-
-        function handlePaymentConfirmation(e) {
-            e.preventDefault();
-            const name = document.getElementById('payerName').value;
-            const phone = document.getElementById('payerPhone').value;
-            const amount = document.getElementById('paidAmount').value;
-            const txnId = document.getElementById('transactionId').value || 'Haikuwekwa';
-            const targetPhone = document.getElementById('confirmTargetPhone').value;
-
-            const text = `Habari Dulla Mabando, Nimekamilisha Malipo!%0A%0A*UTHIBITISHO WA MALIPO:*%0A• Jina la Aliyelipa: *${name}*%0A• Namba Iliyotuma: *${phone}*%0A• Kiasi Kilicholipwa: *TSH ${amount}*%0A• Ref / Txn ID: *${txnId}*%0A• Namba Inayowekewa Bando: *${targetPhone}*%0A%0ANaomba uniewekee bando langu tafadhali.`;
-
-            window.open(`https://wa.me/255614732395?text=${text}`, '_blank');
         }
 
         function copyToClipboard(text) {
