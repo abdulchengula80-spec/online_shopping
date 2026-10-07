@@ -1,164 +1,580 @@
+```html
 <!DOCTYPE html>
-<html lang="sw">
+<html lang="sw" class="scroll-smooth">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>DULLA MABANDO</title>
-<style>
-:root{--bg:#fff7f0;--card:#fff;--ink:#1a1209;--mut:#6b5a48;--or:#f26a10;--yl:#ffd21f;--pu:#3b1a8f;--bd:#ecd9c6;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#150e08;--card:#241a11;--ink:#fff3e6;--mut:#c4ad95;--bd:#3d2c1d}}
-:root[data-theme="dark"]{--bg:#150e08;--card:#241a11;--ink:#fff3e6;--mut:#c4ad95;--bd:#3d2c1d}
-*{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.5 "Trebuchet MS",Verdana,sans-serif}
-header{background:#150e08;color:#fff;padding:28px 18px 24px;text-align:center;border-bottom:6px solid var(--or)}
-h1{margin:0;font:900 clamp(2rem,9vw,3.4rem)/1 Impact,"Arial Black",sans-serif;letter-spacing:.02em;color:var(--yl)}
-header p{margin:8px 0 16px;color:#ffe3c8}
-.btn{display:inline-block;border:0;border-radius:10px;padding:12px 18px;font:700 1rem inherit;font-family:inherit;cursor:pointer;text-decoration:none}
-.wa{background:#25d366;color:#06270f}.or{background:var(--or);color:#fff}.ln{background:transparent;border:2px solid var(--bd);color:var(--ink)}
-.btn:focus-visible,input:focus-visible,select:focus-visible,.pk:focus-visible,.tab:focus-visible{outline:3px solid var(--pu);outline-offset:2px}
-main{max-width:760px;margin:0 auto;padding:18px 14px 60px}
-section{margin-top:26px}
-h2{font:800 1.35rem/1.2 inherit;font-family:Impact,"Arial Black",sans-serif;margin:0 0 12px}
-.tabs{display:flex;gap:8px;flex-wrap:wrap}
-.tab{border:2px solid var(--bd);background:var(--card);color:var(--ink);border-radius:999px;padding:9px 16px;font:700 .95rem inherit;font-family:inherit;cursor:pointer}
-.tab[aria-selected=true]{background:var(--or);border-color:var(--or);color:#fff}
-.tab[data-n=yas][aria-selected=true]{background:var(--pu);border-color:var(--pu)}
-.tab.soon{opacity:.6}
-.note{color:var(--mut);font-size:.9rem;margin:10px 0}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:10px;margin-top:12px}
-.pk{background:var(--card);border:2px solid var(--bd);border-radius:12px;padding:12px;text-align:left;cursor:pointer;color:var(--ink);font-family:inherit}
-.pk b{display:block;font-size:1.35rem}.pk span{color:var(--mut);font-size:.95rem}
-.pk[aria-pressed=true]{border-color:var(--or);background:var(--or);color:#fff}
-.pk[aria-pressed=true] span{color:#fff}
-body.yas .pk[aria-pressed=true]{border-color:var(--pu);background:var(--pu)}
-.box{background:var(--card);border:2px solid var(--bd);border-radius:14px;padding:16px}
-label{display:block;font-weight:700;margin:12px 0 4px}
-input,select{width:100%;padding:12px;border-radius:10px;border:2px solid var(--bd);background:var(--bg);color:var(--ink);font:inherit}
-.sum{margin:14px 0;padding:12px;border-radius:10px;background:var(--bg);border:2px dashed var(--bd)}
-.num{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:10px 0;border-bottom:1px solid var(--bd)}
-.num:last-of-type{border-bottom:0}
-.num strong{font-size:1.35rem;letter-spacing:.03em}
-.err{color:#c0271d;font-weight:700;min-height:1.4em;margin:8px 0 0}
-footer{text-align:center;color:var(--mut);padding:20px 14px 30px;font-size:.9rem}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DULLA MABANDO - Huduma ya Mabando Tanzania</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Poppins', 'sans-serif'],
+                    },
+                    colors: {
+                        yasPurple: '#2d004d',
+                        yasGold: '#ffcc00',
+                        haloOrange: '#ff5500',
+                        haloYellow: '#ffaa00',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .gradient-yas {
+            background: linear-gradient(135deg, #1f0134 0%, #4a0080 50%, #2d004d 100%);
+        }
+        .gradient-halotel {
+            background: linear-gradient(135deg, #e63900 0%, #ff6600 50%, #ff8800 100%);
+        }
+        .pulse-btn {
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+            70% { transform: scale(1.03); box-shadow: 0 0 0 12px rgba(37, 211, 102, 0); }
+            100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+        }
+    </style>
 </head>
-<body>
-<header>
-  <h1>DULLA MABANDO</h1>
-  <p>Vifurushi vya intaneti kwa mitandao yote. Haraka, bei nafuu, huduma 24/7.</p>
-  <a class="btn wa" id="waTop" href="#">Nipigie WhatsApp</a>
-  <a class="btn ln" style="color:#fff;border-color:#fff3" id="callTop" href="#">Piga simu</a>
-</header>
+<body class="bg-slate-900 text-slate-100 min-h-screen flex flex-col font-sans pb-20 md:pb-0">
 
-<main>
-<section>
-  <h2>1. Chagua mtandao</h2>
-  <div class="tabs" role="tablist" id="tabs"></div>
-  <p class="note" id="netNote"></p>
-</section>
+    <header class="sticky top-0 z-40 bg-slate-900/90 backdrop-blur-md border-b border-slate-800 shadow-lg">
+        <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <div class="w-10 h-10 rounded-full bg-gradient-to-tr from-amber-500 to-orange-600 flex items-center justify-center font-black text-xl text-white shadow-md border border-amber-300">
+                    D
+                </div>
+                <div>
+                    <h1 class="text-xl font-black tracking-wider text-amber-400 leading-none">DULLA <span class="text-white">MABANDO</span></h1>
+                    <p class="text-[10px] text-slate-400 font-medium tracking-widest uppercase">Tunakuhudumia kwa Uaminifu & Haraka</p>
+                </div>
+            </div>
+            <div class="hidden md:flex items-center space-x-4">
+                <a href="#packages" class="text-sm font-semibold hover:text-amber-400 transition-colors">Vifurushi</a>
+                <a href="#payment-info" class="text-sm font-semibold hover:text-amber-400 transition-colors">Malipo</a>
+                <a href="#confirm-payment" class="text-sm font-semibold hover:text-amber-400 transition-colors">Thibitisha Malipo</a>
+                <a href="https://wa.me/255614732395" target="_blank" class="bg-green-600 hover:bg-green-500 text-white text-sm px-4 py-2 rounded-full font-bold flex items-center space-x-2 transition-all shadow-md">
+                    <i class="fab fa-whatsapp text-lg"></i>
+                    <span>0614732395</span>
+                </a>
+            </div>
+        </div>
+    </header>
 
-<section id="pkSec">
-  <h2>2. Chagua kifurushi</h2>
-  <div class="grid" id="grid"></div>
-</section>
+    <section class="relative bg-gradient-to-br from-purple-950 via-slate-900 to-orange-950 py-8 md:py-12 border-b border-slate-800">
+        <div class="max-w-6xl mx-auto px-4 text-center">
+            <span class="inline-block px-4 py-1.5 rounded-full bg-amber-500/20 text-amber-300 text-xs md:text-sm font-bold border border-amber-500/30 mb-4">
+                🔥 OFA DABO DAU - BEI SHAWISHI!
+            </span>
+            <h2 class="text-3xl md:text-5xl font-extrabold text-white mb-3 tracking-tight">
+                NUNUA MABANDO KWA <span class="text-amber-400 underline decoration-amber-500">BEI CHEE</span>
+            </h2>
+            <p class="text-slate-300 max-w-2xl mx-auto text-sm md:text-base mb-6">
+                Chagua kifurushi chako kutoka **YAS** au **HALOTEL**, fanya malipo, kisha tupate WhatsApp au kupitia Call/SMS tukuwekee bando yako papo hapo!
+            </p>
 
-<section>
-  <h2>3. Weka oda yako</h2>
-  <div class="box">
-    <label for="name">Jina lako</label>
-    <input id="name" autocomplete="name" placeholder="Mfano: Juma Ali">
-    <label for="phone">Namba itakayopokea bando</label>
-    <input id="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="Mfano: 0712345678">
-    <label for="pay">Utalipa kwa</label>
-    <select id="pay">
-      <option>M-Pesa (Vodacom)</option><option>Tigo Pesa (Yas)</option><option>Airtel Money</option><option>HaloPesa</option>
-    </select>
-    <div class="sum" id="sum">Bado hujachagua kifurushi.</div>
-    <p class="err" id="err" role="alert"></p>
-    <button class="btn wa" id="send" style="width:100%">Tuma oda WhatsApp</button>
-  </div>
-</section>
+            <!-- Action Contact Strip -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-3 max-w-3xl mx-auto">
+                <a href="https://wa.me/255614732395?text=Habari%20Dulla%20Mabando,%20nataka%20msaada%20wa%20kueleweshwa" target="_blank" class="bg-emerald-600 hover:bg-emerald-500 text-white py-2.5 px-3 rounded-xl font-bold text-xs md:text-sm flex items-center justify-center space-x-2 shadow-lg transition-transform active:scale-95">
+                    <i class="fab fa-whatsapp text-lg"></i>
+                    <span>WhatsApp</span>
+                </a>
+                <a href="tel:0614732395" class="bg-blue-600 hover:bg-blue-500 text-white py-2.5 px-3 rounded-xl font-bold text-xs md:text-sm flex items-center justify-center space-x-2 shadow-lg transition-transform active:scale-95">
+                    <i class="fas fa-phone-alt text-base"></i>
+                    <span>Piga: 0614732395</span>
+                </a>
+                <a href="tel:0651417108" class="bg-cyan-600 hover:bg-cyan-500 text-white py-2.5 px-3 rounded-xl font-bold text-xs md:text-sm flex items-center justify-center space-x-2 shadow-lg transition-transform active:scale-95">
+                    <i class="fas fa-phone text-base"></i>
+                    <span>Piga: 0651417108</span>
+                </a>
+                <a href="sms:0614732395" class="bg-indigo-600 hover:bg-indigo-500 text-white py-2.5 px-3 rounded-xl font-bold text-xs md:text-sm flex items-center justify-center space-x-2 shadow-lg transition-transform active:scale-95">
+                    <i class="fas fa-comment-dots text-base"></i>
+                    <span>Tuma SMS</span>
+                </a>
+            </div>
+        </div>
+    </section>
 
-<section>
-  <h2>4. Lipa kwenye namba hizi</h2>
-  <div class="box">
-    <div class="num"><div><div class="note" style="margin:0">Namba ya kwanza</div><strong>0614732395</strong></div><button class="btn or" data-copy="0614732395">Nakili</button></div>
-    <div class="num"><div><div class="note" style="margin:0">Namba ya pili</div><strong>0651417108</strong></div><button class="btn or" data-copy="0651417108">Nakili</button></div>
-    <p class="note">Tuma kiasi kamili cha kifurushi kwa mtandao wako wa pesa, kisha bonyeza "Tuma oda WhatsApp" na ambatanisha picha ya ujumbe wa muamala. Bando litawekwa baada ya malipo kuthibitishwa.</p>
-    <a class="btn ln" id="call1" href="#">Piga 0614732395</a>
-    <a class="btn ln" id="call2" href="#">Piga 0651417108</a>
-  </div>
-</section>
-</main>
+    <main class="max-w-6xl mx-auto px-4 py-8 flex-1">
+        <div id="packages" class="mb-6 text-center">
+            <h3 class="text-2xl font-bold text-white mb-2">Chagua Mtandao Wako</h3>
+            <p class="text-xs text-slate-400">Bonyeza mtandao unaotaka kuona vifurushi vyake na bei</p>
+        </div>
 
-<footer>© DULLA MABANDO. Tunakuhudumia kwa uaminifu: haraka, bei nafuu.</footer>
+        <div class="flex flex-wrap justify-center gap-3 mb-8">
+            <button onclick="switchTab('yas')" id="tab-yas" class="network-tab px-6 py-3 rounded-2xl font-black text-sm md:text-base flex items-center space-x-2 border-2 border-purple-500 bg-purple-900/60 text-white shadow-lg transition-all">
+                <span class="w-3 h-3 rounded-full bg-yellow-400"></span>
+                <span>YAS SUPER BANDO</span>
+            </button>
+            <button onclick="switchTab('halotel')" id="tab-halotel" class="network-tab px-6 py-3 rounded-2xl font-black text-sm md:text-base flex items-center space-x-2 border-2 border-slate-700 bg-slate-800 text-slate-400 hover:text-white shadow-lg transition-all">
+                <span class="w-3 h-3 rounded-full bg-orange-500"></span>
+                <span>HALOTEL SUPER BANDO</span>
+            </button>
+            <button onclick="switchTab('others')" id="tab-others" class="network-tab px-6 py-3 rounded-2xl font-black text-sm md:text-base flex items-center space-x-2 border-2 border-slate-700 bg-slate-800 text-slate-400 hover:text-white shadow-lg transition-all">
+                <i class="fas fa-ellipsis-h text-xs"></i>
+                <span>Voda / Tigo / Airtel</span>
+            </button>
+        </div>
 
-<script>
-// ===== SETTINGS: badilisha hapa =====
-var WA="255614732395";            // WhatsApp (bila 0 mbele, na 255)
-var NUM1="0614732395", NUM2="0651417108";
-var NETS={
-  halotel:{name:"Halotel",note:"Super Bando: internet ya haraka, bei poa.",list:[[3,4000],[4,5000],[5,6000],[6,7000],[7,8000],[8,9000],[9,9500],[10,10000],[15,15000],[20,20000],[30,30000],[50,48000],[100,90000]]},
-  yas:{name:"Yas",note:"Super Bando Unlimited: ndani ya miezi miwili, dau zote saa 24.",list:[[1,1800],[2,3600],[3,5400],[4,7200],[5,9000],[6,10800],[7,12600],[8,14400],[9,16200],[10,18000],[20,35000],[30,52000],[40,70000],[50,85000]]}
-};
-var SOON=["Vodacom","Tigo","Airtel"];
-// ====================================
-var net="halotel", pick=null;
-var $=function(i){return document.getElementById(i)};
-var fmt=function(n){return n.toLocaleString("en-US")};
-function tabs(){
-  var h="";
-  for(var k in NETS) h+='<button class="tab" role="tab" data-n="'+k+'" aria-selected="'+(k===net)+'">'+NETS[k].name+'</button>';
-  SOON.forEach(function(s){h+='<button class="tab soon" data-soon="'+s+'">'+s+'</button>'});
-  $("tabs").innerHTML=h;
-  $("netNote").textContent=NETS[net].note;
-  document.body.className=net==="yas"?"yas":"";
-}
-function grid(){
-  $("grid").innerHTML=NETS[net].list.map(function(p,i){
-    return '<button class="pk" data-i="'+i+'" aria-pressed="'+(pick===i)+'"><b>GB '+p[0]+'</b><span>Tsh '+fmt(p[1])+'</span></button>';
-  }).join("");
-}
-function sum(){
-  var s=$("sum");
-  if(pick===null){s.textContent="Bado hujachagua kifurushi.";return}
-  var p=NETS[net].list[pick];
-  s.innerHTML="<b>"+NETS[net].name+" · GB "+p[0]+"</b><br>Utalipa: <b>Tsh "+fmt(p[1])+"</b>";
-}
-$("tabs").addEventListener("click",function(e){
-  var t=e.target.closest(".tab"); if(!t)return;
-  if(t.dataset.soon){
-    window.open("https://wa.me/"+WA+"?text="+encodeURIComponent("Habari DULLA MABANDO, nahitaji bando la "+t.dataset.soon+". Naomba bei na vifurushi."),"_blank");return;
-  }
-  net=t.dataset.n;pick=null;tabs();grid();sum();
-});
-$("grid").addEventListener("click",function(e){
-  var b=e.target.closest(".pk"); if(!b)return;
-  pick=+b.dataset.i;grid();sum();
-});
-document.addEventListener("click",function(e){
-  var c=e.target.closest("[data-copy]"); if(!c)return;
-  var v=c.dataset.copy;
-  try{navigator.clipboard.writeText(v)}catch(x){}
-  var o=c.textContent;c.textContent="Imenakiliwa";setTimeout(function(){c.textContent=o},1500);
-});
-$("send").addEventListener("click",function(){
-  var n=$("name").value.trim(), ph=$("phone").value.trim().replace(/\s/g,"");
-  var er=$("err");er.textContent="";
-  if(pick===null){er.textContent="Chagua kifurushi kwanza.";return}
-  if(!n){er.textContent="Andika jina lako.";$("name").focus();return}
-  if(!/^(0|255|\+255)?[67]\d{8}$/.test(ph)){er.textContent="Andika namba sahihi ya simu, mfano 0712345678.";$("phone").focus();return}
-  var p=NETS[net].list[pick];
-  var m="Habari DULLA MABANDO, naomba kuagiza bando:\n"+
-   "Mtandao: "+NETS[net].name+"\nKifurushi: GB "+p[0]+"\nBei: Tsh "+fmt(p[1])+
-   "\nNamba ya bando: "+ph+"\nJina: "+n+"\nMalipo kupitia: "+$("pay").value+
-   "\nNalipa kwenda: "+NUM1+" / "+NUM2+"\nNitatuma picha ya muamala.";
-  window.open("https://wa.me/"+WA+"?text="+encodeURIComponent(m),"_blank");
-});
-var tel=function(id,n){$(id).href="tel:+255"+n.slice(1)};
-tel("callTop",NUM1);tel("call1",NUM1);tel("call2",NUM2);
-$("waTop").href="https://wa.me/"+WA+"?text="+encodeURIComponent("Habari DULLA MABANDO, nahitaji msaada.");
-tabs();grid();sum();
-</script>
+        <!-- YAS PACKAGES -->
+        <div id="network-yas" class="network-content">
+            <div class="gradient-yas p-6 rounded-3xl border border-purple-500/40 shadow-2xl mb-8">
+                <div class="flex flex-col md:flex-row justify-between items-center mb-6 pb-4 border-b border-purple-400/20 gap-4">
+                    <div>
+                        <span class="px-3 py-1 rounded-full bg-yellow-400 text-purple-950 font-black text-xs uppercase">Ndani Ya Miezi Miwili / Masaa 24</span>
+                        <h3 class="text-3xl font-black text-yellow-400 mt-2">YAS SUPER BANDO UNLIMITED</h3>
+                        <p class="text-purple-200 text-xs md:text-sm">Internet ya Mwendokasi Bila Kikomo • Dau Zote Saa 24 • Haraka Zaidi</p>
+                    </div>
+                    <div class="bg-purple-900/80 px-4 py-2 rounded-2xl border border-yellow-400/30 text-center">
+                        <i class="fas fa-bolt text-yellow-400 text-xl mb-1"></i>
+                        <p class="text-[11px] font-semibold text-yellow-200">Huduma ya Haraka Sana</p>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-4" id="yas-grid">
+                    <!-- Populated dynamically -->
+                </div>
+            </div>
+        </div>
+
+        <!-- HALOTEL PACKAGES -->
+        <div id="network-halotel" class="network-content hidden">
+            <div class="gradient-halotel p-6 rounded-3xl border border-orange-400/40 shadow-2xl mb-8">
+                <div class="flex flex-col md:flex-row justify-between items-center mb-6 pb-4 border-b border-orange-300/20 gap-4">
+                    <div>
+                        <span class="px-3 py-1 rounded-full bg-slate-900 text-amber-300 font-black text-xs uppercase">Bora Kwa Wote</span>
+                        <h3 class="text-3xl font-black text-white mt-2">HALOTEL SUPER BANDO</h3>
+                        <p class="text-orange-100 text-xs md:text-sm">Maisha ni Mtandao! • Internet ya Haraka • Bei Poa kabisa</p>
+                    </div>
+                    <div class="bg-orange-900/80 px-4 py-2 rounded-2xl border border-amber-300/30 text-center">
+                        <i class="fas fa-wifi text-amber-300 text-xl mb-1"></i>
+                        <p class="text-[11px] font-semibold text-amber-100">Intaneti ya Uhakika</p>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-4" id="halotel-grid">
+                    <!-- Populated dynamically -->
+                </div>
+            </div>
+        </div>
+
+        <!-- OTHERS -->
+        <div id="network-others" class="network-content hidden">
+            <div class="bg-slate-800/90 p-8 rounded-3xl border border-slate-700 text-center shadow-2xl mb-8">
+                <div class="w-16 h-16 bg-amber-500/10 text-amber-400 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl border border-amber-500/20">
+                    <i class="fas fa-mobile-alt"></i>
+                </div>
+                <h3 class="text-2xl font-bold text-white mb-2">VODACOM, TIGO NA AIRTEL</h3>
+                <p class="text-slate-300 max-w-md mx-auto mb-6 text-sm">
+                    Tunatoa pia bando za mitandao mingine kwa maombi maalum. Wasiliana nasi moja kwa moja kwa WhatsApp kupata bei!
+                </p>
+                <a href="https://wa.me/255614732395?text=Habari%20Dulla%20Mabando,%20naomba%20kujua%20bei%20za%20bando%20za%20(Vodacom/Tigo/Airtel)" target="_blank" class="inline-flex items-center space-x-2 bg-green-600 hover:bg-green-500 text-white font-bold px-6 py-3 rounded-2xl shadow-lg transition-all">
+                    <i class="fab fa-whatsapp text-xl"></i>
+                    <span>Ulizia Vifurushi Hivi WhatsApp</span>
+                </a>
+            </div>
+        </div>
+
+        <section id="order-section" class="bg-slate-800/80 border border-slate-700 rounded-3xl p-6 md:p-8 mb-12 shadow-xl backdrop-blur-md">
+            <div class="max-w-2xl mx-auto">
+                <div class="text-center mb-6">
+                    <span class="text-amber-400 font-bold text-xs uppercase tracking-widest">Hatua ya 1</span>
+                    <h3 class="text-2xl font-bold text-white">Weka Odha Yako</h3>
+                    <p class="text-slate-400 text-xs md:text-sm">Chagua kifurushi na uweke namba inayowekewa bando</p>
+                </div>
+
+                <form id="orderForm" onsubmit="handleOrderSubmit(event)" class="space-y-4">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-300 mb-1">Mtandao Unaotaka</label>
+                            <select id="selectedNetwork" onchange="updateBundleOptions()" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-amber-500 transition-colors">
+                                <option value="YAS">YAS (Super Bando)</option>
+                                <option value="HALOTEL">HALOTEL (Super Bando)</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-300 mb-1">Kifurushi (GB / Bei)</label>
+                            <select id="selectedBundle" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-amber-500 transition-colors">
+                            </select>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-300 mb-1">Namba ya Simu Inayowekewa Bando</label>
+                        <input type="tel" id="recipientPhone" required placeholder="Mfano: 0614732395 au 07XXXXXXXX" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-amber-500 transition-colors">
+                    </div>
+
+                    <div class="p-4 rounded-2xl bg-amber-500/10 border border-amber-500/20 text-xs text-amber-200 flex items-start space-x-3">
+                        <i class="fas fa-info-circle text-amber-400 text-base mt-0.5"></i>
+                        <div>
+                            <p class="font-bold">Maelekezo:</p>
+                            <p>Ukibonyeza button ya chini, itakuelekeza moja kwa moja **WhatsApp** ukiwa na ujumbe uliotengenezwa tayari kurequest bando.</p>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                        <button type="submit" class="w-full bg-gradient-to-r from-emerald-600 to-green-500 hover:from-emerald-500 hover:to-green-400 text-white font-extrabold py-3.5 px-4 rounded-2xl shadow-xl transition-transform active:scale-[0.99] flex items-center justify-center space-x-2 pulse-btn">
+                            <i class="fab fa-whatsapp text-xl"></i>
+                            <span>REQUEST WHATSAPP</span>
+                        </button>
+                        <button type="button" onclick="sendViaSMS()" class="w-full bg-indigo-600 hover:bg-indigo-500 text-white font-extrabold py-3.5 px-4 rounded-2xl shadow-xl transition-transform active:scale-[0.99] flex items-center justify-center space-x-2">
+                            <i class="fas fa-comment-alt text-lg"></i>
+                            <span>TUMA SMS KAWAIDA</span>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </section>
+
+        <section id="payment-info" class="mb-12">
+            <div class="text-center mb-6">
+                <span class="text-amber-400 font-bold text-xs uppercase tracking-widest">Hatua ya 2</span>
+                <h3 class="text-2xl font-bold text-white">Namba za Malipo</h3>
+                <p class="text-slate-400 text-xs md:text-sm">Lipa kupitia namba zetu rasmi hapa chini</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Payment Card 1 -->
+                <div class="bg-slate-800/90 border-2 border-amber-500/50 rounded-3xl p-6 relative overflow-hidden shadow-2xl">
+                    <div class="absolute top-0 right-0 bg-amber-500 text-slate-950 font-black text-[10px] px-3 py-1 rounded-bl-xl uppercase tracking-wider">
+                        Namba Kuu
+                    </div>
+                    <div class="flex items-center space-x-3 mb-4">
+                        <div class="w-12 h-12 rounded-2xl bg-amber-500/20 border border-amber-500/30 text-amber-400 flex items-center justify-center text-xl font-bold">
+                            <i class="fas fa-wallet"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-lg font-bold text-white">Namba ya Kwanza (WhatsApp & Malipo)</h4>
+                            <p class="text-xs text-slate-400">Mtandao wowote / NMB / Tigopesa / Mpesa / Airtel / Halopesa</p>
+                        </div>
+                    </div>
+
+                    <div class="bg-slate-900/80 p-4 rounded-2xl border border-slate-700/80 mb-4 flex items-center justify-between">
+                        <div>
+                            <span class="text-xs text-slate-400 block">Namba ya Simu:</span>
+                            <span class="text-2xl font-black text-amber-400 tracking-wider">0614732395</span>
+                        </div>
+                        <button onclick="copyToClipboard('0614732395')" class="bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-600 px-3 py-2 rounded-xl text-xs font-semibold flex items-center space-x-1 transition-colors">
+                            <i class="fas fa-copy"></i>
+                            <span>Kopi</span>
+                        </button>
+                    </div>
+                    <p class="text-xs text-slate-300 font-medium">Jina la Usajili: <strong class="text-white">DULLA MABANDO / SAIDI</strong></p>
+                </div>
+
+                <!-- Payment Card 2 -->
+                <div class="bg-slate-800/90 border border-slate-700 rounded-3xl p-6 relative overflow-hidden shadow-xl">
+                    <div class="flex items-center space-x-3 mb-4">
+                        <div class="w-12 h-12 rounded-2xl bg-cyan-500/20 border border-cyan-500/30 text-cyan-400 flex items-center justify-center text-xl font-bold">
+                            <i class="fas fa-mobile"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-lg font-bold text-white">Namba ya Pili (Mawasiliano & Malipo)</h4>
+                            <p class="text-xs text-slate-400">Namba Mbadala ya Malipo</p>
+                        </div>
+                    </div>
+
+                    <div class="bg-slate-900/80 p-4 rounded-2xl border border-slate-700/80 mb-4 flex items-center justify-between">
+                        <div>
+                            <span class="text-xs text-slate-400 block">Namba ya Simu:</span>
+                            <span class="text-2xl font-black text-cyan-400 tracking-wider">0651417108</span>
+                        </div>
+                        <button onclick="copyToClipboard('0651417108')" class="bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-600 px-3 py-2 rounded-xl text-xs font-semibold flex items-center space-x-1 transition-colors">
+                            <i class="fas fa-copy"></i>
+                            <span>Kopi</span>
+                        </button>
+                    </div>
+                    <p class="text-xs text-slate-300 font-medium">Jina la Usajili: <strong class="text-white">DULLA MABANDO / SAIDI</strong></p>
+                </div>
+            </div>
+        </section>
+
+        <section id="confirm-payment" class="bg-slate-800/90 border-2 border-green-500/40 rounded-3xl p-6 md:p-8 shadow-2xl relative overflow-hidden">
+            <div class="max-w-2xl mx-auto">
+                <div class="text-center mb-6">
+                    <span class="px-3 py-1 bg-green-500/20 text-green-400 border border-green-500/30 rounded-full font-bold text-xs uppercase tracking-widest">Hatua ya 3</span>
+                    <h3 class="text-2xl font-extrabold text-white mt-2">Thibitisha Malipo Yako</h3>
+                    <p class="text-slate-300 text-xs md:text-sm">Ukishafanya malipo, jaza fomu hii kisha tuma uthibitisho WhatsApp ili kuwekewa bando papo hapo!</p>
+                </div>
+
+                <form id="confirmPaymentForm" onsubmit="handlePaymentConfirmation(event)" class="space-y-4">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-300 mb-1">Jina Lako / Jina la Aliyelipa</label>
+                            <input type="text" id="payerName" required placeholder="Mfano: John Joseph" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-green-500 transition-colors">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-300 mb-1">Namba Iliyotuma Pesa</label>
+                            <input type="tel" id="payerPhone" required placeholder="Mfano: 0712345678" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-green-500 transition-colors">
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-300 mb-1">Kiasi Kilicholipwa (TSH)</label>
+                            <input type="number" id="paidAmount" required placeholder="Mfano: 4000" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-green-500 transition-colors">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-300 mb-1">Kumbukumbu / Ref ID (Optional)</label>
+                            <input type="text" id="transactionId" placeholder="Mfano: 9283749281" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-green-500 transition-colors">
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-300 mb-1">Namba Inayowekewa Bando</label>
+                        <input type="tel" id="confirmTargetPhone" required placeholder="Namba inayopokea bando" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-green-500 transition-colors">
+                    </div>
+
+                    <button type="submit" class="w-full bg-gradient-to-r from-green-600 to-emerald-500 hover:from-green-500 hover:to-emerald-400 text-white font-extrabold py-4 px-6 rounded-2xl shadow-xl transition-transform active:scale-[0.99] flex items-center justify-center space-x-3">
+                        <i class="fas fa-check-circle text-2xl"></i>
+                        <span>THIBITISHA MALIPO KWA WHATSAPP</span>
+                    </button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <div id="toast" class="fixed bottom-20 left-1/2 transform -translate-x-1/2 bg-slate-800 text-white border border-amber-500 px-6 py-3 rounded-2xl shadow-2xl opacity-0 pointer-events-none transition-all duration-300 z-50 text-xs md:text-sm font-semibold flex items-center space-x-2">
+        <i class="fas fa-check-circle text-amber-400"></i>
+        <span id="toastMessage">Taarifa imekopiwa!</span>
+    </div>
+
+    <!-- Mobile Bottom Navigation -->
+    <div class="md:hidden fixed bottom-0 left-0 right-0 bg-slate-900/95 border-t border-slate-800 p-2 z-50 backdrop-blur-lg flex justify-around items-center">
+        <a href="#packages" class="flex flex-col items-center text-slate-400 hover:text-amber-400 text-[10px] font-medium">
+            <i class="fas fa-cubes text-base mb-1"></i>
+            <span>Vifurushi</span>
+        </a>
+        <a href="#payment-info" class="flex flex-col items-center text-slate-400 hover:text-amber-400 text-[10px] font-medium">
+            <i class="fas fa-credit-card text-base mb-1"></i>
+            <span>Malipo</span>
+        </a>
+        <a href="https://wa.me/255614732395" target="_blank" class="flex flex-col items-center text-green-400 hover:text-green-300 text-[10px] font-bold">
+            <div class="w-10 h-10 rounded-full bg-green-600 text-white flex items-center justify-center text-xl shadow-lg -mt-5 border-2 border-slate-900">
+                <i class="fab fa-whatsapp"></i>
+            </div>
+            <span class="mt-1">WhatsApp</span>
+        </a>
+        <a href="tel:0614732395" class="flex flex-col items-center text-slate-400 hover:text-amber-400 text-[10px] font-medium">
+            <i class="fas fa-phone text-base mb-1"></i>
+            <span>Piga Simu</span>
+        </a>
+        <a href="#confirm-payment" class="flex flex-col items-center text-slate-400 hover:text-amber-400 text-[10px] font-medium">
+            <i class="fas fa-check-double text-base mb-1"></i>
+            <span>Thibitisha</span>
+        </a>
+    </div>
+
+    <footer class="bg-slate-950 border-t border-slate-800 py-8 text-center text-xs text-slate-500">
+        <div class="max-w-6xl mx-auto px-4 space-y-3">
+            <p class="font-bold text-slate-400">DULLA MABANDO - Huduma Bora ya Intaneti Tanzania</p>
+            <p>Mawasiliano: 0614732395 | 0651417108</p>
+            <p class="text-[10px] text-slate-600">&copy; 2026 Dulla Mabando. Haki zote zimehifadhiwa.</p>
+        </div>
+    </footer>
+
+    <script>
+        const yasData = [
+            { gb: '1 GB', price: 1800 },
+            { gb: '2 GB', price: 3600 },
+            { gb: '3 GB', price: 5400 },
+            { gb: '4 GB', price: 7200 },
+            { gb: '5 GB', price: 9000 },
+            { gb: '6 GB', price: 10800 },
+            { gb: '7 GB', price: 12600 },
+            { gb: '8 GB', price: 14400 },
+            { gb: '9 GB', price: 16200 },
+            { gb: '10 GB', price: 18000 },
+            { gb: '20 GB', price: 35000 },
+            { gb: '30 GB', price: 52000 },
+            { gb: '40 GB', price: 70000 },
+            { gb: '50 GB', price: 85000 }
+        ];
+
+        const halotelData = [
+            { gb: 'GB 3', price: 4000 },
+            { gb: 'GB 4', price: 5000 },
+            { gb: 'GB 5', price: 6000 },
+            { gb: 'GB 6', price: 7000 },
+            { gb: 'GB 7', price: 8000 },
+            { gb: 'GB 8', price: 9000 },
+            { gb: 'GB 9', price: 9500 },
+            { gb: 'GB 10', price: 10000 },
+            { gb: 'GB 15', price: 15000 },
+            { gb: 'GB 20', price: 20000 },
+            { gb: 'GB 30', price: 30000 },
+            { gb: 'GB 50', price: 48000 },
+            { gb: 'GB 100', price: 90000 }
+        ];
+
+        function formatMoney(amount) {
+            return amount.toLocaleString('en-US') + ' TSH';
+        }
+
+        function renderCards() {
+            const yasGrid = document.getElementById('yas-grid');
+            const halotelGrid = document.getElementById('halotel-grid');
+
+            yasGrid.innerHTML = yasData.map(item => `
+                <div class="bg-purple-950/80 border border-yellow-400/30 rounded-2xl p-4 flex flex-col justify-between hover:border-yellow-400 transition-all hover:scale-[1.02] shadow-md group">
+                    <div>
+                        <span class="text-[10px] font-extrabold bg-yellow-400 text-purple-950 px-2 py-0.5 rounded-full uppercase">YAS</span>
+                        <h4 class="text-2xl font-black text-white mt-1 group-hover:text-yellow-400 transition-colors">${item.gb}</h4>
+                        <p class="text-xs text-purple-200">Muda: Miezi 2 / 24hrs</p>
+                    </div>
+                    <div class="mt-4 pt-2 border-t border-purple-800 flex flex-col">
+                        <span class="text-xs text-purple-300">Bei TSh</span>
+                        <span class="text-lg font-black text-yellow-400">${formatMoney(item.price)}</span>
+                        <button onclick="quickSelectBundle('YAS', '${item.gb}', ${item.price})" class="mt-2 w-full bg-yellow-400 hover:bg-yellow-300 text-purple-950 font-black py-2 rounded-xl text-xs flex items-center justify-center space-x-1 transition-colors">
+                            <i class="fab fa-whatsapp"></i>
+                            <span>Agiza Sasa</span>
+                        </button>
+                    </div>
+                </div>
+            `).join('');
+
+            halotelGrid.innerHTML = halotelData.map(item => `
+                <div class="bg-orange-950/80 border border-amber-300/30 rounded-2xl p-4 flex flex-col justify-between hover:border-amber-300 transition-all hover:scale-[1.02] shadow-md group">
+                    <div>
+                        <span class="text-[10px] font-extrabold bg-amber-300 text-orange-950 px-2 py-0.5 rounded-full uppercase">HALOTEL</span>
+                        <h4 class="text-2xl font-black text-white mt-1 group-hover:text-amber-300 transition-colors">${item.gb}</h4>
+                        <p class="text-xs text-orange-200">Super Bando</p>
+                    </div>
+                    <div class="mt-4 pt-2 border-t border-orange-800 flex flex-col">
+                        <span class="text-xs text-orange-300">Bei TSh</span>
+                        <span class="text-lg font-black text-amber-300">${formatMoney(item.price)}</span>
+                        <button onclick="quickSelectBundle('HALOTEL', '${item.gb}', ${item.price})" class="mt-2 w-full bg-amber-300 hover:bg-amber-200 text-orange-950 font-black py-2 rounded-xl text-xs flex items-center justify-center space-x-1 transition-colors">
+                            <i class="fab fa-whatsapp"></i>
+                            <span>Agiza Sasa</span>
+                        </button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function switchTab(network) {
+            document.querySelectorAll('.network-content').forEach(el => el.classList.add('hidden'));
+            document.querySelectorAll('.network-tab').forEach(el => {
+                el.classList.remove('border-purple-500', 'bg-purple-900/60', 'text-white', 'border-orange-500', 'bg-orange-900/60', 'border-amber-500', 'bg-amber-900/60');
+                el.classList.add('border-slate-700', 'bg-slate-800', 'text-slate-400');
+            });
+
+            const activeTab = document.getElementById(`tab-${network}`);
+            const activeContent = document.getElementById(`network-${network}`);
+
+            if (activeContent) activeContent.classList.remove('hidden');
+
+            if (network === 'yas') {
+                activeTab.classList.add('border-purple-500', 'bg-purple-900/60', 'text-white');
+            } else if (network === 'halotel') {
+                activeTab.classList.add('border-orange-500', 'bg-orange-900/60', 'text-white');
+            } else {
+                activeTab.classList.add('border-amber-500', 'bg-amber-900/60', 'text-white');
+            }
+
+            const selectNet = document.getElementById('selectedNetwork');
+            if (network === 'yas' || network === 'halotel') {
+                selectNet.value = network.toUpperCase();
+                updateBundleOptions();
+            }
+        }
+
+        function updateBundleOptions() {
+            const net = document.getElementById('selectedNetwork').value;
+            const bundleSelect = document.getElementById('selectedBundle');
+            const data = net === 'YAS' ? yasData : halotelData;
+
+            bundleSelect.innerHTML = data.map(item => `
+                <option value="${item.gb} - ${item.price}">${item.gb} (${formatMoney(item.price)})</option>
+            `).join('');
+        }
+
+        function quickSelectBundle(network, gb, price) {
+            const selectNet = document.getElementById('selectedNetwork');
+            selectNet.value = network;
+            updateBundleOptions();
+
+            const bundleSelect = document.getElementById('selectedBundle');
+            bundleSelect.value = `${gb} - ${price}`;
+
+            document.getElementById('order-section').scrollIntoView({ behavior: 'smooth' });
+            showToast(`Umechagua ${network} - ${gb}`);
+        }
+
+        function handleOrderSubmit(e) {
+            e.preventDefault();
+            const network = document.getElementById('selectedNetwork').value;
+            const bundleVal = document.getElementById('selectedBundle').value;
+            const phone = document.getElementById('recipientPhone').value;
+
+            const text = `Habari Dulla Mabando,%0ANatambua unatoa huduma ya bando.%0A%0A*OMBI LA BANDO:*%0A• Mtandao: *${network}*%0A• Kifurushi: *${bundleVal.split('-')[0]}*%0A• Bei: *TSH ${bundleVal.split('-')[1]}*%0A• Namba Inayowekewa: *${phone}*%0A%0ANaomba mwongozo wa malipo ili niweze kuwekewa bando langu.`;
+
+            window.open(`https://wa.me/255614732395?text=${text}`, '_blank');
+        }
+
+        function sendViaSMS() {
+            const network = document.getElementById('selectedNetwork').value;
+            const bundleVal = document.getElementById('selectedBundle').value;
+            const phone = document.getElementById('recipientPhone').value;
+
+            if(!phone) {
+                alert('Tafadhali weka namba inayowekewa bando kwanza.');
+                return;
+            }
+
+            const text = `Habari Dulla Mabando, Naomba Bando la ${network} ${bundleVal.split('-')[0]} kwa namba ${phone}.`;
+            window.location.href = `sms:0614732395?body=${encodeURIComponent(text)}`;
+        }
+
+        function handlePaymentConfirmation(e) {
+            e.preventDefault();
+            const name = document.getElementById('payerName').value;
+            const phone = document.getElementById('payerPhone').value;
+            const amount = document.getElementById('paidAmount').value;
+            const txnId = document.getElementById('transactionId').value || 'Haikuwekwa';
+            const targetPhone = document.getElementById('confirmTargetPhone').value;
+
+            const text = `Habari Dulla Mabando, Nimekamilisha Malipo!%0A%0A*UTHIBITISHO WA MALIPO:*%0A• Jina la Aliyelipa: *${name}*%0A• Namba Iliyotuma: *${phone}*%0A• Kiasi Kilicholipwa: *TSH ${amount}*%0A• Ref / Txn ID: *${txnId}*%0A• Namba Inayowekewa Bando: *${targetPhone}*%0A%0ANaomba uniewekee bando langu tafadhali.`;
+
+            window.open(`https://wa.me/255614732395?text=${text}`, '_blank');
+        }
+
+        function copyToClipboard(text) {
+            const input = document.createElement('textarea');
+            input.value = text;
+            document.body.appendChild(input);
+            input.select();
+            document.execCommand('copy');
+            document.body.removeChild(input);
+            showToast(`Namba ${text} imekopiwa!`);
+        }
+
+        function showToast(msg) {
+            const toast = document.getElementById('toast');
+            const toastMsg = document.getElementById('toastMessage');
+            toastMsg.innerText = msg;
+            toast.classList.remove('opacity-0', 'pointer-events-none');
+            toast.classList.add('opacity-100');
+            setTimeout(() => {
+                toast.classList.remove('opacity-100');
+                toast.classList.add('opacity-0', 'pointer-events-none');
+            }, 3000);
+        }
+
+        window.onload = function() {
+            renderCards();
+            updateBundleOptions();
+        };
+    </script>
 </body>
 </html>
+```
