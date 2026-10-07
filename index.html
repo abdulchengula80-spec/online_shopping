@@ -1,938 +1,164 @@
 <!DOCTYPE html>
 <html lang="sw">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>DULLA MABANDO</title>
-
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: Arial, Helvetica, sans-serif;
-        }
-
-        body {
-            background: #f4f4f4;
-            color: #222;
-        }
-
-        /* HEADER */
-        header {
-            background: linear-gradient(135deg, #ff5a00, #ffb300);
-            color: white;
-            padding: 18px 5%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 3px 12px rgba(0,0,0,0.2);
-        }
-
-        .logo {
-            font-size: 28px;
-            font-weight: 900;
-        }
-
-        .logo span {
-            color: #111;
-        }
-
-        .header-phone {
-            font-size: 14px;
-            font-weight: bold;
-        }
-
-        /* HERO */
-        .hero {
-            min-height: 330px;
-            padding: 55px 7%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background:
-                linear-gradient(120deg, #171717, #ff6500);
-            color: white;
-        }
-
-        .hero-text {
-            max-width: 650px;
-        }
-
-        .hero h1 {
-            font-size: clamp(38px, 7vw, 75px);
-            font-weight: 900;
-            line-height: 0.95;
-            text-transform: uppercase;
-        }
-
-        .hero h1 span {
-            color: #ffe000;
-        }
-
-        .hero p {
-            margin-top: 20px;
-            font-size: 20px;
-        }
-
-        .hero-btn {
-            display: inline-block;
-            margin-top: 25px;
-            background: #25D366;
-            color: white;
-            padding: 15px 25px;
-            border-radius: 30px;
-            text-decoration: none;
-            font-weight: bold;
-        }
-
-        /* NETWORKS */
-        .section {
-            padding: 45px 6%;
-        }
-
-        .section-title {
-            text-align: center;
-            margin-bottom: 30px;
-        }
-
-        .section-title h2 {
-            font-size: 32px;
-            font-weight: 900;
-        }
-
-        .section-title p {
-            color: #666;
-            margin-top: 8px;
-        }
-
-        .networks {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
-            gap: 25px;
-            max-width: 1100px;
-            margin: auto;
-        }
-
-        .network-card {
-            background: white;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
-        }
-
-        .network-header {
-            padding: 25px;
-            color: white;
-            text-align: center;
-        }
-
-        .halotel-header {
-            background: linear-gradient(135deg, #ff4d00, #ff9900);
-        }
-
-        .yas-header {
-            background: linear-gradient(135deg, #24005f, #6500b8);
-        }
-
-        .network-header h3 {
-            font-size: 30px;
-            font-weight: 900;
-        }
-
-        .network-header p {
-            margin-top: 6px;
-        }
-
-        .packages {
-            padding: 15px;
-        }
-
-        .package {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 13px 12px;
-            margin-bottom: 8px;
-            border-radius: 10px;
-            background: #f5f5f5;
-        }
-
-        .package strong {
-            font-size: 17px;
-        }
-
-        .price {
-            font-weight: 900;
-            color: #ff5700;
-        }
-
-        .yas-card .price {
-            color: #5100a0;
-        }
-
-        .choose-btn {
-            width: 100%;
-            border: none;
-            padding: 13px;
-            border-radius: 10px;
-            background: #111;
-            color: white;
-            font-weight: bold;
-            cursor: pointer;
-            margin-top: 5px;
-        }
-
-        .choose-btn:hover {
-            opacity: 0.85;
-        }
-
-        /* ORDER */
-        .order-section {
-            background: #111;
-            padding: 50px 6%;
-        }
-
-        .order-box {
-            max-width: 650px;
-            margin: auto;
-            background: white;
-            border-radius: 20px;
-            padding: 30px;
-            box-shadow: 0 10px 35px rgba(0,0,0,0.25);
-        }
-
-        .order-box h2 {
-            text-align: center;
-            margin-bottom: 25px;
-            font-size: 28px;
-        }
-
-        label {
-            display: block;
-            margin: 15px 0 7px;
-            font-weight: bold;
-        }
-
-        input,
-        select {
-            width: 100%;
-            padding: 14px;
-            border: 1px solid #ccc;
-            border-radius: 10px;
-            font-size: 16px;
-            outline: none;
-        }
-
-        input:focus,
-        select:focus {
-            border-color: #ff6500;
-        }
-
-        .payment-box {
-            margin-top: 20px;
-            background: #fff4df;
-            border-left: 5px solid #ff6500;
-            padding: 15px;
-            border-radius: 10px;
-        }
-
-        .payment-number {
-            font-size: 22px;
-            font-weight: 900;
-            margin: 8px 0;
-        }
-
-        .copy-btn {
-            border: none;
-            background: #333;
-            color: white;
-            padding: 9px 15px;
-            border-radius: 7px;
-            cursor: pointer;
-        }
-
-        .whatsapp-btn {
-            display: block;
-            width: 100%;
-            text-align: center;
-            background: #25D366;
-            color: white;
-            padding: 16px;
-            border-radius: 12px;
-            text-decoration: none;
-            font-weight: 900;
-            font-size: 17px;
-            margin-top: 20px;
-        }
-
-        .call-btn {
-            display: block;
-            width: 100%;
-            text-align: center;
-            background: #111;
-            color: white;
-            padding: 14px;
-            border-radius: 12px;
-            text-decoration: none;
-            font-weight: bold;
-            margin-top: 10px;
-        }
-
-        /* FEATURES */
-        .features {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 18px;
-            max-width: 1000px;
-            margin: auto;
-        }
-
-        .feature {
-            background: white;
-            padding: 25px;
-            text-align: center;
-            border-radius: 15px;
-            box-shadow: 0 5px 18px rgba(0,0,0,0.08);
-        }
-
-        .feature .icon {
-            font-size: 35px;
-            margin-bottom: 10px;
-        }
-
-        .feature h3 {
-            margin-bottom: 7px;
-        }
-
-        .feature p {
-            color: #666;
-            font-size: 14px;
-        }
-
-        /* FOOTER */
-        footer {
-            background: #050505;
-            color: white;
-            text-align: center;
-            padding: 30px 15px;
-        }
-
-        footer h2 {
-            color: #ff9d00;
-            margin-bottom: 10px;
-        }
-
-        footer p {
-            color: #ccc;
-            margin: 5px;
-        }
-
-        .social {
-            margin-top: 15px;
-            font-size: 18px;
-        }
-
-        /* FLOATING WHATSAPP */
-        .floating-whatsapp {
-            position: fixed;
-            right: 20px;
-            bottom: 20px;
-            width: 58px;
-            height: 58px;
-            border-radius: 50%;
-            background: #25D366;
-            color: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 30px;
-            text-decoration: none;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.3);
-            z-index: 999;
-        }
-
-        @media(max-width: 600px) {
-
-            header {
-                padding: 14px 5%;
-            }
-
-            .logo {
-                font-size: 21px;
-            }
-
-            .header-phone {
-                font-size: 12px;
-            }
-
-            .hero {
-                padding: 45px 6%;
-                text-align: center;
-            }
-
-            .hero p {
-                font-size: 17px;
-            }
-
-            .section {
-                padding: 35px 5%;
-            }
-
-            .order-box {
-                padding: 22px;
-            }
-
-            .package {
-                padding: 12px 8px;
-            }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>DULLA MABANDO</title>
+<style>
+:root{--bg:#fff7f0;--card:#fff;--ink:#1a1209;--mut:#6b5a48;--or:#f26a10;--yl:#ffd21f;--pu:#3b1a8f;--bd:#ecd9c6;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#150e08;--card:#241a11;--ink:#fff3e6;--mut:#c4ad95;--bd:#3d2c1d}}
+:root[data-theme="dark"]{--bg:#150e08;--card:#241a11;--ink:#fff3e6;--mut:#c4ad95;--bd:#3d2c1d}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.5 "Trebuchet MS",Verdana,sans-serif}
+header{background:#150e08;color:#fff;padding:28px 18px 24px;text-align:center;border-bottom:6px solid var(--or)}
+h1{margin:0;font:900 clamp(2rem,9vw,3.4rem)/1 Impact,"Arial Black",sans-serif;letter-spacing:.02em;color:var(--yl)}
+header p{margin:8px 0 16px;color:#ffe3c8}
+.btn{display:inline-block;border:0;border-radius:10px;padding:12px 18px;font:700 1rem inherit;font-family:inherit;cursor:pointer;text-decoration:none}
+.wa{background:#25d366;color:#06270f}.or{background:var(--or);color:#fff}.ln{background:transparent;border:2px solid var(--bd);color:var(--ink)}
+.btn:focus-visible,input:focus-visible,select:focus-visible,.pk:focus-visible,.tab:focus-visible{outline:3px solid var(--pu);outline-offset:2px}
+main{max-width:760px;margin:0 auto;padding:18px 14px 60px}
+section{margin-top:26px}
+h2{font:800 1.35rem/1.2 inherit;font-family:Impact,"Arial Black",sans-serif;margin:0 0 12px}
+.tabs{display:flex;gap:8px;flex-wrap:wrap}
+.tab{border:2px solid var(--bd);background:var(--card);color:var(--ink);border-radius:999px;padding:9px 16px;font:700 .95rem inherit;font-family:inherit;cursor:pointer}
+.tab[aria-selected=true]{background:var(--or);border-color:var(--or);color:#fff}
+.tab[data-n=yas][aria-selected=true]{background:var(--pu);border-color:var(--pu)}
+.tab.soon{opacity:.6}
+.note{color:var(--mut);font-size:.9rem;margin:10px 0}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:10px;margin-top:12px}
+.pk{background:var(--card);border:2px solid var(--bd);border-radius:12px;padding:12px;text-align:left;cursor:pointer;color:var(--ink);font-family:inherit}
+.pk b{display:block;font-size:1.35rem}.pk span{color:var(--mut);font-size:.95rem}
+.pk[aria-pressed=true]{border-color:var(--or);background:var(--or);color:#fff}
+.pk[aria-pressed=true] span{color:#fff}
+body.yas .pk[aria-pressed=true]{border-color:var(--pu);background:var(--pu)}
+.box{background:var(--card);border:2px solid var(--bd);border-radius:14px;padding:16px}
+label{display:block;font-weight:700;margin:12px 0 4px}
+input,select{width:100%;padding:12px;border-radius:10px;border:2px solid var(--bd);background:var(--bg);color:var(--ink);font:inherit}
+.sum{margin:14px 0;padding:12px;border-radius:10px;background:var(--bg);border:2px dashed var(--bd)}
+.num{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:10px 0;border-bottom:1px solid var(--bd)}
+.num:last-of-type{border-bottom:0}
+.num strong{font-size:1.35rem;letter-spacing:.03em}
+.err{color:#c0271d;font-weight:700;min-height:1.4em;margin:8px 0 0}
+footer{text-align:center;color:var(--mut);padding:20px 14px 30px;font-size:.9rem}
+</style>
 </head>
-
 <body>
-
-<!-- HEADER -->
 <header>
-    <div class="logo">
-        DULLA <span>MABANDO</span>
-    </div>
-
-    <div class="header-phone">
-        📞 0614732395
-    </div>
+  <h1>DULLA MABANDO</h1>
+  <p>Vifurushi vya intaneti kwa mitandao yote. Haraka, bei nafuu, huduma 24/7.</p>
+  <a class="btn wa" id="waTop" href="#">Nipigie WhatsApp</a>
+  <a class="btn ln" style="color:#fff;border-color:#fff3" id="callTop" href="#">Piga simu</a>
 </header>
 
-
-<!-- HERO -->
-<section class="hero">
-
-    <div class="hero-text">
-
-        <h1>
-            INTERNET<br>
-            <span>BANDO</span>
-        </h1>
-
-        <p>
-            Karibu DULLA MABANDO — Pata vifurushi vya
-            <b>YAS & Halotel</b> kwa bei nafuu.
-        </p>
-
-        <a class="hero-btn"
-           href="https://wa.me/255614732395?text=Habari%20Dulla%20Mabando%2C%20nahitaji%20bando."
-           target="_blank">
-            💬 TUPIGIE WHATSAPP
-        </a>
-
-    </div>
-
+<main>
+<section>
+  <h2>1. Chagua mtandao</h2>
+  <div class="tabs" role="tablist" id="tabs"></div>
+  <p class="note" id="netNote"></p>
 </section>
 
-
-<!-- PACKAGES -->
-<section class="section">
-
-    <div class="section-title">
-        <h2>📶 CHAGUA MTANDAO</h2>
-        <p>Chagua kifurushi unachotaka hapa chini</p>
-    </div>
-
-
-    <div class="networks">
-
-        <!-- HALOTEL -->
-        <div class="network-card">
-
-            <div class="network-header halotel-header">
-                <h3>🟠 HALOTEL</h3>
-                <p>Super Bando</p>
-            </div>
-
-            <div class="packages">
-
-                <div class="package">
-                    <strong>GB 3</strong>
-                    <span class="price">TSh 4,000</span>
-                </div>
-
-                <div class="package">
-                    <strong>GB 4</strong>
-                    <span class="price">TSh 5,000</span>
-                </div>
-
-                <div class="package">
-                    <strong>GB 5</strong>
-                    <span class="price">TSh 6,000</span>
-                </div>
-
-                <div class="package">
-                    <strong>GB 6</strong>
-                    <span class="price">TSh 7,000</span>
-                </div>
-
-                <div class="package">
-                    <strong>GB 7</strong>
-                    <span class="price">TSh 8,000</span>
-                </div>
-
-                <div class="package">
-                    <strong>GB 8</strong>
-                    <span class="price">TSh 9,000</span>
-                </div>
-
-                <div class="package">
-                    <strong>GB 9</strong>
-                    <span class="price">TSh 9,500</span>
-                </div>
-
-                <div class="package">
-                    <strong>GB 10</strong>
-                    <span class="price">TSh 10,000</span>
-                </div>
-
-                <div class="package">
-                    <strong>GB 15</strong>
-                    <span class="price">TSh 15,000</span>
-                </div>
-
-                <div class="package">
-                    <strong>GB 20</strong>
-                    <span class="price">TSh 20,000</span>
-                </div>
-
-                <div class="package">
-                    <strong>GB 30</strong>
-                    <span class="price">TSh 30,000</span>
-                </div>
-
-                <div class="package">
-                    <strong>GB 50</strong>
-                    <span class="price">TSh 48,000</span>
-                </div>
-
-                <div class="package">
-                    <strong>GB 100</strong>
-                    <span class="price">TSh 90,000</span>
-                </div>
-
-                <button class="choose-btn"
-                    onclick="selectNetwork('Halotel')">
-                    CHAGUA HALOTEL
-                </button>
-
-            </div>
-        </div>
-
-
-        <!-- YAS -->
-        <div class="network-card yas-card">
-
-            <div class="network-header yas-header">
-                <h3>🟣 YAS</h3>
-                <p>Super Bando Unlimited</p>
-            </div>
-
-            <div class="packages">
-
-                <div class="package">
-                    <strong>GB 1</strong>
-                    <span class="price">TSh 1,800</span>
-                </div>
-
-                <div class="package">
-                    <strong>GB 2</strong>
-                    <span class="price">TSh 3,600</span>
-                </div>
-
-                <div class="package">
-                    <strong>GB 3</strong>
-                    <span class="price">TSh 5,400</span>
-                </div>
-
-                <div class="package">
-                    <strong>GB 4</strong>
-                    <span class="price">TSh 7,200</span>
-                </div>
-
-                <div class="package">
-                    <strong>GB 5</strong>
-                    <span class="price">TSh 9,000</span>
-                </div>
-
-                <div class="package">
-                    <strong>GB 6</strong>
-                    <span class="price">TSh 10,800</span>
-                </div>
-
-                <div class="package">
-                    <strong>GB 7</strong>
-                    <span class="price">TSh 12,600</span>
-                </div>
-
-                <div class="package">
-                    <strong>GB 8</strong>
-                    <span class="price">TSh 14,400</span>
-                </div>
-
-                <div class="package">
-                    <strong>GB 9</strong>
-                    <span class="price">TSh 16,200</span>
-                </div>
-
-                <div class="package">
-                    <strong>GB 10</strong>
-                    <span class="price">TSh 18,000</span>
-                </div>
-
-                <div class="package">
-                    <strong>GB 20</strong>
-                    <span class="price">TSh 35,000</span>
-                </div>
-
-                <div class="package">
-                    <strong>GB 30</strong>
-                    <span class="price">TSh 52,000</span>
-                </div>
-
-                <div class="package">
-                    <strong>GB 40</strong>
-                    <span class="price">TSh 70,000</span>
-                </div>
-
-                <div class="package">
-                    <strong>GB 50</strong>
-                    <span class="price">TSh 85,000</span>
-                </div>
-
-                <button class="choose-btn"
-                    onclick="selectNetwork('YAS')">
-                    CHAGUA YAS
-                </button>
-
-            </div>
-        </div>
-
-    </div>
-
+<section id="pkSec">
+  <h2>2. Chagua kifurushi</h2>
+  <div class="grid" id="grid"></div>
 </section>
 
-
-<!-- ORDER FORM -->
-<section class="order-section">
-
-    <div class="order-box">
-
-        <h2>🛒 REQUEST BANDO</h2>
-
-        <label>Mtandao</label>
-
-        <select id="network">
-            <option value="">-- Chagua Mtandao --</option>
-            <option value="Halotel">Halotel</option>
-            <option value="YAS">YAS</option>
-        </select>
-
-
-        <label>Kifurushi</label>
-
-        <select id="package">
-            <option value="">-- Chagua Kifurushi --</option>
-        </select>
-
-
-        <label>Namba ya simu itakayowekewa bando</label>
-
-        <input
-            type="tel"
-            id="customerNumber"
-            placeholder="Mfano: 06XXXXXXXX"
-            maxlength="10"
-        >
-
-
-        <div class="payment-box">
-
-            <strong>💳 FANYA MALIPO HAPA</strong>
-
-            <p class="payment-number">
-                0614732395
-            </p>
-
-            <p>
-                Lipa kiasi kinachoonekana kwenye kifurushi
-                ulichochagua.
-            </p>
-
-            <button class="copy-btn"
-                onclick="copyNumber()">
-                📋 Nakili Namba
-            </button>
-
-        </div>
-
-
-        <a id="whatsappOrder"
-           class="whatsapp-btn"
-           href="#"
-           onclick="sendWhatsApp(event)">
-            💬 REQUEST KUPITIA WHATSAPP
-        </a>
-
-
-        <a href="tel:0651417108"
-           class="call-btn">
-            📞 PIGA SIMU: 0651417108
-        </a>
-
-    </div>
-
+<section>
+  <h2>3. Weka oda yako</h2>
+  <div class="box">
+    <label for="name">Jina lako</label>
+    <input id="name" autocomplete="name" placeholder="Mfano: Juma Ali">
+    <label for="phone">Namba itakayopokea bando</label>
+    <input id="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="Mfano: 0712345678">
+    <label for="pay">Utalipa kwa</label>
+    <select id="pay">
+      <option>M-Pesa (Vodacom)</option><option>Tigo Pesa (Yas)</option><option>Airtel Money</option><option>HaloPesa</option>
+    </select>
+    <div class="sum" id="sum">Bado hujachagua kifurushi.</div>
+    <p class="err" id="err" role="alert"></p>
+    <button class="btn wa" id="send" style="width:100%">Tuma oda WhatsApp</button>
+  </div>
 </section>
 
-
-<!-- FEATURES -->
-<section class="section">
-
-    <div class="section-title">
-        <h2>⭐ KWA NINI DULLA MABANDO?</h2>
-    </div>
-
-    <div class="features">
-
-        <div class="feature">
-            <div class="icon">⚡</div>
-            <h3>Huduma ya Haraka</h3>
-            <p>Oda yako inashughulikiwa kwa haraka.</p>
-        </div>
-
-        <div class="feature">
-            <div class="icon">💰</div>
-            <h3>Bei Nafuu</h3>
-            <p>Vifurushi kwa bei zinazokufaa.</p>
-        </div>
-
-        <div class="feature">
-            <div class="icon">📱</div>
-            <h3>Request Online</h3>
-            <p>Chagua bando na tuma oda kupitia WhatsApp.</p>
-        </div>
-
-        <div class="feature">
-            <div class="icon">🤝</div>
-            <h3>Uaminifu</h3>
-            <p>Tunakuhudumia kwa uaminifu.</p>
-        </div>
-
-    </div>
-
+<section>
+  <h2>4. Lipa kwenye namba hizi</h2>
+  <div class="box">
+    <div class="num"><div><div class="note" style="margin:0">Namba ya kwanza</div><strong>0614732395</strong></div><button class="btn or" data-copy="0614732395">Nakili</button></div>
+    <div class="num"><div><div class="note" style="margin:0">Namba ya pili</div><strong>0651417108</strong></div><button class="btn or" data-copy="0651417108">Nakili</button></div>
+    <p class="note">Tuma kiasi kamili cha kifurushi kwa mtandao wako wa pesa, kisha bonyeza "Tuma oda WhatsApp" na ambatanisha picha ya ujumbe wa muamala. Bando litawekwa baada ya malipo kuthibitishwa.</p>
+    <a class="btn ln" id="call1" href="#">Piga 0614732395</a>
+    <a class="btn ln" id="call2" href="#">Piga 0651417108</a>
+  </div>
 </section>
+</main>
 
-
-<!-- FOOTER -->
-<footer>
-
-    <h2>DULLA MABANDO</h2>
-
-    <p>Internet Bando • Bei Nafuu • Huduma ya Haraka</p>
-
-    <p>📲 WhatsApp: 0614732395</p>
-
-    <p>📞 Simu: 0651417108</p>
-
-    <div class="social">
-        © 2026 Dulla Mabando. All Rights Reserved.
-    </div>
-
-</footer>
-
-
-<!-- FLOATING WHATSAPP -->
-<a class="floating-whatsapp"
-   href="https://wa.me/255614732395"
-   target="_blank">
-    ☎
-</a>
-
+<footer>© DULLA MABANDO. Tunakuhudumia kwa uaminifu: haraka, bei nafuu.</footer>
 
 <script>
-
-    const packages = {
-
-        Halotel: [
-            ["GB 3", 4000],
-            ["GB 4", 5000],
-            ["GB 5", 6000],
-            ["GB 6", 7000],
-            ["GB 7", 8000],
-            ["GB 8", 9000],
-            ["GB 9", 9500],
-            ["GB 10", 10000],
-            ["GB 15", 15000],
-            ["GB 20", 20000],
-            ["GB 30", 30000],
-            ["GB 50", 48000],
-            ["GB 100", 90000]
-        ],
-
-        YAS: [
-            ["GB 1", 1800],
-            ["GB 2", 3600],
-            ["GB 3", 5400],
-            ["GB 4", 7200],
-            ["GB 5", 9000],
-            ["GB 6", 10800],
-            ["GB 7", 12600],
-            ["GB 8", 14400],
-            ["GB 9", 16200],
-            ["GB 10", 18000],
-            ["GB 20", 35000],
-            ["GB 30", 52000],
-            ["GB 40", 70000],
-            ["GB 50", 85000]
-        ]
-
-    };
-
-
-    const networkSelect =
-        document.getElementById("network");
-
-    const packageSelect =
-        document.getElementById("package");
-
-
-    networkSelect.addEventListener("change", function () {
-
-        const network = this.value;
-
-        packageSelect.innerHTML =
-            '<option value="">-- Chagua Kifurushi --</option>';
-
-        if (!network) return;
-
-        packages[network].forEach(item => {
-
-            const option =
-                document.createElement("option");
-
-            option.value = item[0] + "|" + item[1];
-
-            option.textContent =
-                item[0] + " — TSh " +
-                item[1].toLocaleString();
-
-            packageSelect.appendChild(option);
-
-        });
-
-    });
-
-
-    function selectNetwork(network) {
-
-        networkSelect.value = network;
-
-        networkSelect.dispatchEvent(
-            new Event("change")
-        );
-
-        document.querySelector(".order-section")
-            .scrollIntoView({
-                behavior: "smooth"
-            });
-    }
-
-
-    function copyNumber() {
-
-        navigator.clipboard.writeText(
-            "0614732395"
-        );
-
-        alert("Namba ya malipo imenakiliwa: 0614732395");
-
-    }
-
-
-    function sendWhatsApp(event) {
-
-        event.preventDefault();
-
-        const network =
-            document.getElementById("network").value;
-
-        const selected =
-            document.getElementById("package").value;
-
-        const customer =
-            document.getElementById("customerNumber").value.trim();
-
-
-        if (!network) {
-
-            alert("Tafadhali chagua mtandao.");
-
-            return;
-        }
-
-
-        if (!selected) {
-
-            alert("Tafadhali chagua kifurushi.");
-
-            return;
-        }
-
-
-        if (!customer) {
-
-            alert("Tafadhali weka namba ya simu.");
-
-            return;
-        }
-
-
-        const data = selected.split("|");
-
-        const bundle = data[0];
-
-        const price =
-            Number(data[1]).toLocaleString();
-
-
-        const message =
-`HABARI DULLA MABANDO 👋
-
-Nahitaji kufanya request ya bando.
-
-📡 Mtandao: ${network}
-📦 Kifurushi: ${bundle}
-💰 Bei: TSh ${price}
-📱 Namba ya kuweka bando: ${customer}
-
-💳 Nimefanya / nitafanya malipo kupitia:
-0614732395
-
-Naomba nihudumiwe. Asante 🤝`;
-
-
-        const whatsappURL =
-            "https://wa.me/255614732395?text=" +
-            encodeURIComponent(message);
-
-
-        window.open(
-            whatsappURL,
-            "_blank"
-        );
-
-    }
-
+// ===== SETTINGS: badilisha hapa =====
+var WA="255614732395";            // WhatsApp (bila 0 mbele, na 255)
+var NUM1="0614732395", NUM2="0651417108";
+var NETS={
+  halotel:{name:"Halotel",note:"Super Bando: internet ya haraka, bei poa.",list:[[3,4000],[4,5000],[5,6000],[6,7000],[7,8000],[8,9000],[9,9500],[10,10000],[15,15000],[20,20000],[30,30000],[50,48000],[100,90000]]},
+  yas:{name:"Yas",note:"Super Bando Unlimited: ndani ya miezi miwili, dau zote saa 24.",list:[[1,1800],[2,3600],[3,5400],[4,7200],[5,9000],[6,10800],[7,12600],[8,14400],[9,16200],[10,18000],[20,35000],[30,52000],[40,70000],[50,85000]]}
+};
+var SOON=["Vodacom","Tigo","Airtel"];
+// ====================================
+var net="halotel", pick=null;
+var $=function(i){return document.getElementById(i)};
+var fmt=function(n){return n.toLocaleString("en-US")};
+function tabs(){
+  var h="";
+  for(var k in NETS) h+='<button class="tab" role="tab" data-n="'+k+'" aria-selected="'+(k===net)+'">'+NETS[k].name+'</button>';
+  SOON.forEach(function(s){h+='<button class="tab soon" data-soon="'+s+'">'+s+'</button>'});
+  $("tabs").innerHTML=h;
+  $("netNote").textContent=NETS[net].note;
+  document.body.className=net==="yas"?"yas":"";
+}
+function grid(){
+  $("grid").innerHTML=NETS[net].list.map(function(p,i){
+    return '<button class="pk" data-i="'+i+'" aria-pressed="'+(pick===i)+'"><b>GB '+p[0]+'</b><span>Tsh '+fmt(p[1])+'</span></button>';
+  }).join("");
+}
+function sum(){
+  var s=$("sum");
+  if(pick===null){s.textContent="Bado hujachagua kifurushi.";return}
+  var p=NETS[net].list[pick];
+  s.innerHTML="<b>"+NETS[net].name+" · GB "+p[0]+"</b><br>Utalipa: <b>Tsh "+fmt(p[1])+"</b>";
+}
+$("tabs").addEventListener("click",function(e){
+  var t=e.target.closest(".tab"); if(!t)return;
+  if(t.dataset.soon){
+    window.open("https://wa.me/"+WA+"?text="+encodeURIComponent("Habari DULLA MABANDO, nahitaji bando la "+t.dataset.soon+". Naomba bei na vifurushi."),"_blank");return;
+  }
+  net=t.dataset.n;pick=null;tabs();grid();sum();
+});
+$("grid").addEventListener("click",function(e){
+  var b=e.target.closest(".pk"); if(!b)return;
+  pick=+b.dataset.i;grid();sum();
+});
+document.addEventListener("click",function(e){
+  var c=e.target.closest("[data-copy]"); if(!c)return;
+  var v=c.dataset.copy;
+  try{navigator.clipboard.writeText(v)}catch(x){}
+  var o=c.textContent;c.textContent="Imenakiliwa";setTimeout(function(){c.textContent=o},1500);
+});
+$("send").addEventListener("click",function(){
+  var n=$("name").value.trim(), ph=$("phone").value.trim().replace(/\s/g,"");
+  var er=$("err");er.textContent="";
+  if(pick===null){er.textContent="Chagua kifurushi kwanza.";return}
+  if(!n){er.textContent="Andika jina lako.";$("name").focus();return}
+  if(!/^(0|255|\+255)?[67]\d{8}$/.test(ph)){er.textContent="Andika namba sahihi ya simu, mfano 0712345678.";$("phone").focus();return}
+  var p=NETS[net].list[pick];
+  var m="Habari DULLA MABANDO, naomba kuagiza bando:\n"+
+   "Mtandao: "+NETS[net].name+"\nKifurushi: GB "+p[0]+"\nBei: Tsh "+fmt(p[1])+
+   "\nNamba ya bando: "+ph+"\nJina: "+n+"\nMalipo kupitia: "+$("pay").value+
+   "\nNalipa kwenda: "+NUM1+" / "+NUM2+"\nNitatuma picha ya muamala.";
+  window.open("https://wa.me/"+WA+"?text="+encodeURIComponent(m),"_blank");
+});
+var tel=function(id,n){$(id).href="tel:+255"+n.slice(1)};
+tel("callTop",NUM1);tel("call1",NUM1);tel("call2",NUM2);
+$("waTop").href="https://wa.me/"+WA+"?text="+encodeURIComponent("Habari DULLA MABANDO, nahitaji msaada.");
+tabs();grid();sum();
 </script>
-
 </body>
-    </html>
+</html>
